@@ -1,9 +1,10 @@
 import requests
 from Crypto.Cipher import AES
 import base64
+from random import randint
 
 # 接口URL
-url = "https://www.m4twf.xyz:20000/api/evmess?&proto=v2&platform=android&googleplay=1&ver=3.0.5&deviceid=1bcec3395995cf19unknown&unicode=1bcec3395995cf19unknown&t=1717462751804&code=9GFZ2R&recomm_code=&f=2024-06-04&install=2024-06-04&token=amSTaWVnkZWOk2xscWlsb5mZbmRolGuRZ2mQl5Jrkmhnaw==&package=com.honeybee.network&area=5"
+url = "https://www.m4twf.xyz:20000/api/evmess?&proto=v2&platform=android&googleplay=1&ver=3.0.5&deviceid=1bcec3395995cf19unknown&unicode=1bcec3395995cf19unknown&t=1717462751804&code=9GFZ2R&recomm_code=&f=2024-06-04&install=2024-06-04&token=amSTaWVnkZWOk2xscWlsb5mZbmRolGuRZ2mQl5Jrkmhnaw==&package=com.honeybee.network&area="
 
 # 解密密钥和IV（文本）
 key = b'ks9KUrbWJj46AftX'
@@ -14,7 +15,7 @@ decrypted_nodes = set()
 
 # 获取并解密节点信息
 def fetch_and_decrypt():
-    response = requests.get(url)
+    response = requests.get(url+randint(1, 100))
     if response.status_code == 200:
         encrypted_data = response.text.strip()  # 获取返回的加密字符串
         try:
@@ -34,7 +35,7 @@ def fetch_and_decrypt():
         return None
 
 # 重复获取并解密节点信息10次
-for _ in range(10):
+for _ in range(50):
     node_info = fetch_and_decrypt()
     if node_info:
         decrypted_nodes.add(node_info)
