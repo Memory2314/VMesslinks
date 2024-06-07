@@ -34,7 +34,7 @@ def fetch_and_decrypt():
         print(f"请求失败，状态码: {response.status_code}")
         return None
 
-# 重复获取并解密节点信息10次
+# 重复获取并解密节点信息50次
 for _ in range(50):
     node_info = fetch_and_decrypt()
     if node_info:
