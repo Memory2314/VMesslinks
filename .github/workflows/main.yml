@@ -1,0 +1,38 @@
+name: getVMess
+
+on:
+  workflow_dispatch:
+
+  schedule:
+    - cron: '0/20 * * * *'
+
+env: # 设置环境变量
+  TZ: Asia/Shanghai
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: 迁出代码
+      uses: actions/checkout@v4
+    - name: 安装Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.x'
+    - name: 设置时区
+      run: sudo timedatectl set-timezone 'Asia/Shanghai'
+    - name: 安装依赖
+      run: |
+        pip install -r ./utils/requirements.txt
+    - name: 执行任务
+      run: |
+        python ./utils/get_vmess.py
+    - name: Commit
+      run: |
+        git config --global user.name "GitHub Actions"
+        git config --global user.email "actions@github.com"
+        git add ./links
+        git commit -m "VMess节点更新时间 $(date '+%Y-%m-%d %H:%M:%S')"
+        git config pull.rebase false
+        git pull
+        git push -u origin main
