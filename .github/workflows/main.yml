@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
 
   schedule:
-    - cron: '0 0/10 * * * ? '
+    - cron: '*/5 * * * *'
 
 env: # 设置环境变量
   TZ: Asia/Shanghai
