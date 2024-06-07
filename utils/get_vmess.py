@@ -15,7 +15,7 @@ decrypted_nodes = set()
 
 # 获取并解密节点信息
 def fetch_and_decrypt():
-    response = requests.get(url+randint(1, 100))
+    response = requests.get(url+str(randint(1, 100)))
     if response.status_code == 200:
         encrypted_data = response.text.strip()  # 获取返回的加密字符串
         try:
