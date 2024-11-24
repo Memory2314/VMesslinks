@@ -57,8 +57,11 @@ for node in decrypted_nodes:
     print(node)
     vmess += f"{node}\n"
 
+# Base64 编码
+encoded_vmess = base64.b64encode(vmess.encode('utf-8')).decode('utf-8')
+
 # 将去重后的节点信息保存到文件
 with open("./links/vmess", "w") as f:
-    f.write(vmess)
+    f.write(encoded_vmess)
 
 print("节点信息已保存到 './links/vmess'")
