@@ -4,4 +4,4 @@
 
 ### VMess订阅链接
 - `https://github.com/Memory2314/VMesslinks/raw/main/links/vmess`  源
-- `https://raw.staticdn.net/Memory2314/VMesslinks/main/links/vmess`  CDN
+- `https://raw.gitmirror.com/Memory2314/VMesslinks/main/links/vmess`  CDN
