@@ -1,16 +1,4 @@
-import sys
-import subprocess
-
-try:
-    import pyaes
-except ModuleNotFoundError:
-    subprocess.check_call([sys.executable, "-m", "pip", "install", "pyaes"])
-    import pyaes
-import requests
-import base64
-import json
-import pyaes
-import binascii
+import sys, subprocess, pyaes, requests, base64, json, binascii
 from datetime import datetime
 
 def f(g, d, e):
