@@ -37,9 +37,9 @@ if j.status_code == 200:
 encoded_vmess = base64.b64encode(vmess.encode('utf-8')).decode('utf-8')
 
 # 将去重后的节点信息保存到文件
-with open("./links/base64", "w") as f:
-    f.write(vmess)
 with open("./links/vmess", "w") as f:
+    f.write(vmess)
+with open("./links/base64", "w") as f:
     f.write(encoded_vmess)
 
 print("节点信息已保存")
