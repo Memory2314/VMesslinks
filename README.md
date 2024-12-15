@@ -9,3 +9,6 @@
 ### VMess订阅链接
 - `https://github.com/Memory2314/VMesslinks/raw/main/links/vmess`  源
 - `https://raw.gitmirror.com/Memory2314/VMesslinks/main/links/vmess`  CDN
+
+## Star History
+[![Star History Chart](https://api.star-history.com/svg?repos=Memory2314/VMesslinks&type=Date)](https://star-history.com/#Memory2314/VMesslinks&Date)
