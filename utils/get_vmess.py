@@ -13,7 +13,8 @@ url = f"https://clashnode.cc/uploads/{year}/{month}/0-{year}{month}{day}.txt"
 try:
     v2ray_response = requests.get(url+'.txt')
     clash_response = requests.get(url+'.yaml')
-    response.raise_for_status()  # 检查请求是否成功
+    v2ray_response.raise_for_status()  # 检查请求是否成功
+    clash_response.raise_for_status()
 
     print(f"成功获取到内容 (日期: {current_date}):")
     v2ray_node = v2ray_response.text
